@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Me vas a dar el Chiquito?</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff3366;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+      position: absolute;
+    }
+
+    .btn:hover {
+      background-color: #ff3385;
+    }
+
+    #btn-si {
+      bottom: 100px;
+      left: 40%;
+    }
+
+    #btn-no {
+      bottom: 100px;
+      left: 50%;
+    }
+
+    #respuesta {
+      margin-top: 100px;
+      font-size: 2rem;
+      color: #cc0066;
+    }
+
+    .heart {
+      font-size: 3rem;
+      animation: heartBeat 1s infinite;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Me vas a dar el 	Chiquito?</h1>
+  <button class="btn" id="btn-si" onclick="responder()">Sí 💖</button>
+  <button class="btn" id="btn-no" onmouseover="moverBoton()">No ❌</button>
+  <div id="respuesta"></div>
+
+  <script>
+    function responder() {
+      document.getElementById("respuesta").innerHTML = "¡Yujuuu! 💞 Te quiero mucho 😘 <div class='heart'>💓</div>";
+    }
+
+    function moverBoton() {
+      const btnNo = document.getElementById("btn-no");
+      const maxX = window.innerWidth - btnNo.offsetWidth;
+      const maxY = window.innerHeight - btnNo.offsetHeight;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+      btnNo.style.left = randomX + "px";
+      btnNo.style.top = randomY + "px";
+    }
+  </script>
+</body>
+</html>
